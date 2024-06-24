@@ -9,14 +9,24 @@
 
     <ImageView
         android:id="@+id/iv_home_title"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:src="@drawable/welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <DigitalClock
+        android:id="@+id/cl_clock"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_home_title"
+        app:layout_constraintEnd_toStartOf="@+id/iv_home_title"
+        app:layout_constraintTop_toTopOf="@+id/iv_home_title"/>
 
     <TextView
         android:id="@+id/tv_profile_title"
@@ -32,21 +42,21 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_home_title" />
+        app:layout_constraintTop_toBottomOf="@id/iv_home_title"/>
 
     <TextView
         android:id="@+id/tv_home_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
         android:text="아이디 : spa001"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_profile_title" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_profile_title"/>
 
     <TextView
         android:id="@+id/tv_home_name"
@@ -60,7 +70,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_id" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_id"/>
 
     <TextView
         android:id="@+id/tv_home_age"
@@ -74,7 +84,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_name" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_name"/>
 
     <TextView
         android:id="@+id/tv_home_MBTI"
@@ -88,7 +98,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_age" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_age"/>
 
     <TextView
         android:id="@+id/tv_hobby"
@@ -102,7 +112,83 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_MBTI" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_MBTI"/>
+
+    <TextView
+        android:id="@+id/tv_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="목표!"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hobby"/>
+
+    <LinearLayout
+        android:id="@+id/lv_goal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_check">
+
+        <CheckBox
+            android:id="@+id/ck_check"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"/>
+
+        <TextView
+            android:id="@+id/tv_goal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:gravity="center_vertical"
+            android:text="앱 개발자 취업"
+            android:paddingStart="10dp"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lv_goal_2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_goal">
+
+        <CheckBox
+            android:id="@+id/ck_check_2"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"/>
+
+        <TextView
+            android:id="@+id/tv_goal_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="다양한 앱 개발 및 앱 개발자로서의 성장"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_finish"
@@ -110,7 +196,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/black"
         android:text="종료"
         android:textSize="20sp"
