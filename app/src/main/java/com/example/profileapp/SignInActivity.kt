@@ -30,8 +30,8 @@ class SignInActivity : AppCompatActivity() {
         val loginId = findViewById<EditText>(R.id.et_login_id)
         val loginPd = findViewById<EditText>(R.id.et_login_password)
 
-        // 가져온 아이디와 비밀번호를 다시 Edittext 연결한 거에다 출력하는 부분.
-        // 근데 여긴 밑에 회원가입 페이지 가는 부분 실행하고 SignUpActivity.kt 갔다 와서 실행할 것이다.
+        // SignUpActivity.kt에서 가져온 아이디와 비밀번호를 연결해 놓은 EditText에 출력하는 부분. 회원가입 먼저 했고 로그인은 입력 안 했으니 가져올 때 까진 EditText가 비어있다.
+        // 여기 코드는 밑에 있는 회원가입 페이지 가는 부분 실행하고 SignUpActivity.kt 갔다 와서 실행할 것이다.
         val resultValue = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result : ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val resultId = result.data?.getStringExtra("ID")
