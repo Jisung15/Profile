@@ -28,20 +28,12 @@ class HomeActivity : AppCompatActivity() {
         val profilePageTitle = findViewById<TextView>(R.id.tv_profile_title)
         val homeImage = findViewById<ImageView>(R.id.iv_home_title)
 
-        // SignInActivity.kt에서 아이디를 입력받은 것을 넘겨주는데 그걸 받는 부분
-        val loginId = intent.getStringExtra("ID")
+        val loginId = intent.getStringExtra("ID")                                    // SignInActivity.kt에서 아이디를 입력받은 것을 넘겨주는데 그걸 받는 부분
+        Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()           // 그걸 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
+        profilePageTitle.text = "${loginId}님의 프로필"                                      // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
+        loginIdValue.text = "아이디 : ${loginId}"                                           // 아이디를 출력하는 TextView에 받아온 아이디를 출력
 
-        // 그걸 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
-        Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-
-        // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
-        profilePageTitle.text = "${loginId}님의 프로필"
-
-        // 아이디를 출력하는 TextView에 받아온 아이디를 출력
-        loginIdValue.text = "아이디 : ${loginId}"
-
-        // 랜덤으로 1부터 5까지 정수 중 하나를 고름
-        val random = Random.nextInt(5) + 1
+        val random = Random.nextInt(5) + 1                                            // 랜덤으로 1부터 5까지 정수 중 하나를 고름
 
         // 그렇게 랜덤으로 선택된 숫자가 무엇인가에 따라 랜덤으로 이미지 출력
         when (random) {

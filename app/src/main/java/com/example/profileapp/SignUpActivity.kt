@@ -1,5 +1,6 @@
 package com.example.profileapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -26,12 +27,16 @@ class SignUpActivity : AppCompatActivity() {
         val makeId = findViewById<EditText>(R.id.et_make_profile_id)
         val makePd = findViewById<EditText>(R.id.et_make_profile_password)
 
-        // 회원가입 완료 버튼 누르면 다시 로그인 화면으로 이동
+        // 회원가입 완료 버튼 누르면 다시 로그인 화면으로 이동. 이때 아이디와 비밀번호 입력한 걸 가지고 가도록 설정
         // 이름이나 아이디, 비밀번호 중 하나라도 입력하지 않으면 "입력되지 않은 정보가 있습니다." 라는 토스트 메세지 출력
         signUpButton.setOnClickListener {
             if (makeName.text.isEmpty() || makeId.text.isEmpty() || makePd.text.isEmpty()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             } else {
+                val back = Intent()
+                back.putExtra("ID", makeId.text.toString())
+                back.putExtra("Pd", makePd.text.toString())
+                setResult(RESULT_OK, back)
                 finish()
             }
         }

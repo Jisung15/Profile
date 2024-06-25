@@ -1,11 +1,14 @@
 package com.example.profileapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -27,10 +30,21 @@ class SignInActivity : AppCompatActivity() {
         val loginId = findViewById<EditText>(R.id.et_login_id)
         val loginPd = findViewById<EditText>(R.id.et_login_password)
 
+        // 가져온 아이디와 비밀번호를 다시 Edittext 연결한 거에다 출력하는 부분.
+        // 근데 여긴 밑에 회원가입 페이지 가는 부분 실행하고 SignUpActivity.kt 갔다 와서 실행할 것이다.
+        val resultValue = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result : ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val resultId = result.data?.getStringExtra("ID")
+                val resultPd = result.data?.getStringExtra("Pd")
+                loginId.setText(resultId)
+                loginPd.setText(resultPd)
+            }
+        }
+
         // 회원 가입 버튼 눌렀을 때 회원 가입 페이지로 이동
         makeProfileButton.setOnClickListener {
             val make = Intent(this, SignUpActivity::class.java)
-            startActivity(make)
+            resultValue.launch(make)
         }
 
         // 로그인 버튼 눌렀을 때 프로필 페이지로 이동
