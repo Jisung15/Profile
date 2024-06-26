@@ -119,15 +119,16 @@
         android:layout_marginEnd="20dp"
         android:inputType="textPassword"/>
 
-    <Switch
-        android:id="@+id/sw_on_off"
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sw_on_off2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="비밀번호 가리기 "
+        android:text="비밀번호 가리기  "
         android:fontFamily="@font/font1"
+        android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/et_make_profile_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="UseSwitchCompatOrMaterialXml"/>
+        app:layout_constraintEnd_toEndOf="parent">
+    </androidx.appcompat.widget.SwitchCompat>
 
     <Button
         android:id="@+id/btn_make_profile"
@@ -139,7 +140,7 @@
         android:textSize="30sp"
         android:backgroundTint="@color/black"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/sw_on_off"
+        app:layout_constraintTop_toBottomOf="@id/sw_on_off2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
