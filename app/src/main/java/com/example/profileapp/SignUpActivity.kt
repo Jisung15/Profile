@@ -47,9 +47,8 @@ class SignUpActivity : AppCompatActivity() {
                 }
 
                 val mbtiList = listOf("ISTJ", "ISTP", "ISFP", "ISFJ", "INTJ", "INTP", "INFP", "INFJ", "ESTJ", "ESTP", "ESFP", "ESFJ", "ENTJ", "ENTP", "ENFP", "ENFJ")
-                val mbntilist2 = listOf("istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj")
-
-                if (mbti.text.toString() in mbtiList || mbti.text.toString() in mbntilist2) {
+                val mbtiList2 = listOf("istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj")
+                if (mbti.text.toString() in mbtiList || mbti.text.toString() in mbtiList2) {
                     back.putExtra("mbti", userClass.mbti)
                 } else {
                     Toast.makeText(this, "MBTI 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
