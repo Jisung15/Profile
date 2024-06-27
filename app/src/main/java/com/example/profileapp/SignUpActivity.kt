@@ -37,14 +37,35 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             } else {
                 val userClass = UserClass("${makeName.text}", "${makeId.text}", "${makePd.text}", "${age.text}", "${mbti.text}", "${gender.text}")         // 데이터 클래스 설정
-
                 val back = Intent()
+
+                if (age.text.toString().toInt() in 1..100) {
+                    back.putExtra("age", userClass.age)
+                } else {
+                    Toast.makeText(this, "100세를 초과하는 나이는 입력하실 수 없습니다.", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                val mbtiList = listOf("ISTJ", "ISTP", "ISFP", "ISFJ", "INTJ", "INTP", "INFP", "INFJ", "ESTJ", "ESTP", "ESFP", "ESFJ", "ENTJ", "ENTP", "ENFP", "ENFJ")
+                val mbntilist2 = listOf("istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj")
+
+                if (mbti.text.toString() in mbtiList || mbti.text.toString() in mbntilist2) {
+                    back.putExtra("mbti", userClass.mbti)
+                } else {
+                    Toast.makeText(this, "MBTI 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                if (gender.text.toString() == "남성" || gender.text.toString() == "여성") {
+                    back.putExtra("gender", userClass.gender)
+                } else {
+                    Toast.makeText(this, "성별 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
                 back.putExtra("makeId", userClass.id)
                 back.putExtra("makePd", userClass.pd)
                 back.putExtra("makeName", userClass.name)
-                back.putExtra("age", userClass.age)
-                back.putExtra("mbti", userClass.mbti)
-                back.putExtra("gender", userClass.gender)
                 setResult(RESULT_OK, back)
                 finish()
             }
