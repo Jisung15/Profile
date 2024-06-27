@@ -27,11 +27,16 @@ class HomeActivity : AppCompatActivity() {
         val loginIdValue = findViewById<TextView>(R.id.tv_home_id)
         val profilePageTitle = findViewById<TextView>(R.id.tv_profile_title)
         val homeImage = findViewById<ImageView>(R.id.iv_home_title)
+        val password = findViewById<TextView>(R.id.tv_password)
 
-        val loginId = intent.getStringExtra("ID")                                    // SignInActivity.kt에서 아이디를 입력받은 것을 넘겨주는데 그걸 받는 부분
+        val loginId = intent.getStringExtra("IdValue")                               // SignInActivity.kt에서 아이디를 입력받은 것을 넘겨주는데 그걸 받는 부분
+        val loginPd = intent.getStringExtra("PdValue")
+        val loginName = intent.getStringExtra("NameValue")
+
         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()           // 그걸 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
-        profilePageTitle.text = "${loginId}님의 프로필"                                      // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
+        profilePageTitle.text = "${loginName}님의 프로필"                                    // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
         loginIdValue.text = "아이디 : ${loginId}"                                           // 아이디를 출력하는 TextView에 받아온 아이디를 출력
+        password.text = "비밀번호 : ${loginPd}"
 
         val random = Random.nextInt(5) + 1                                            // 랜덤으로 1부터 5까지 정수 중 하나를 고름
 
