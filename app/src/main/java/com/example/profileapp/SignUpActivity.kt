@@ -42,7 +42,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (age.text.toString().toInt() in 1..100) {
                     back.putExtra("age", userClass.age)
                 } else {
-                    Toast.makeText(this, "100세를 초과하는 나이는 입력하실 수 없습니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "나이 입력이 잘못되었거나 입력 가능한 숫자 범위를 벗어났습니다.", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
