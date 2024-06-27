@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResult
@@ -43,16 +44,17 @@ class SignInActivity : AppCompatActivity() {
 
                 if (loginId.text.isNotEmpty() && loginPd.text.isNotEmpty()) {
                     signButton.setOnClickListener {
-                        val home = Intent(this, HomeActivity::class.java)
-                        home.putExtra("IdValue", resultId)               // 아이디를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
-                        home.putExtra("PdValue", resultPd)               // 비밀번호를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
-                        home.putExtra("NameValue", resultName)           // 이름을 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
-                        startActivity(home)
+                        val value = Intent(this, HomeActivity::class.java)
+                        value.putExtra("loginId", resultId)                           // 아이디를 입력받는 EditText 에 입력한 아이디를 HomeActivity로 넘겨줌
+                        value.putExtra("loginPd", resultPd)                           // 비밀번호를 입력받는 EditText 에 입력한 비밀번호를 HomeActivity로 넘겨줌
+                        value.putExtra("NameValue", resultName)                       // 이름을 입력받는 EditText 에 입력한 이름을 HomeActivity로 넘겨줌
+                        startActivity(value)
                     }
                 }
-
             }
         }
+
+        val name = intent.getStringExtra("makeName")
 
         // 회원 가입 버튼 눌렀을 때 회원 가입 페이지로 이동
         makeProfileButton.setOnClickListener {

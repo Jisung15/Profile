@@ -34,7 +34,7 @@ class SignUpActivity : AppCompatActivity() {
             if (makeName.text.isEmpty() || makeId.text.isEmpty() || makePd.text.isEmpty()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             } else {
-                val userClass = UserClass("${makeName.text}", "${makeId.text}", "${makePd.text}")
+                val userClass = UserClass("${makeName.text}", "${makeId.text}", "${makePd.text}")                // 데이터 클래스 설정
 
                 val back = Intent()
                 back.putExtra("makeId", userClass.id)
