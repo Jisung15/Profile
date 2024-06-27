@@ -23,27 +23,38 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
 
-        // activity_home.xml에서 만든 버튼, TextView, ImageView 연결
+        // activity_home.xml에서 만든 버튼, TextView, ImageView 연결 (참 많기도 하다...)
         val homeButton = findViewById<Button>(R.id.btn_finish)
-        val loginIdValue = findViewById<TextView>(R.id.tv_home_id)
         val profilePageTitle = findViewById<TextView>(R.id.tv_profile_title)
         val homeImage = findViewById<ImageView>(R.id.iv_home_title)
         val password = findViewById<TextView>(R.id.tv_password)
         val name = findViewById<TextView>(R.id.tv_home_name)
+        val etAge = findViewById<TextView>(R.id.tv_home_age)
+        val mbtiEdit = findViewById<TextView>(R.id.tv_home_MBTI)
+        val etGender = findViewById<TextView>(R.id.tv_home_gender)
 
-        val loginId = intent.getStringExtra("loginId")                               // SignInActivity.kt에서 아이디를 입력받은 것을 넘겨주는데 그걸 받는 부분
-        val loginPd = intent.getStringExtra("loginPd")                              // SignInActivity.kt에서 비밀번호를 입력받은 것을 넘겨주는데 그걸 받는 부분
-        val loginName = intent.getStringExtra("NameValue")                          // SignUpActivity.kt에서 이름을 입력받은 것을 로그인 페이지에서 넘겨주는데 그걸 받는 부분
+        val loginId = intent.getStringExtra("loginId")                              // SignInActivity.kt에서 아이디를 입력받은 것을 넘겨주는데 그걸 받는 부분
+        val loginPd = intent.getStringExtra("loginPd")                              // SignInActivity.kt에서 비밀번호를 받기
+        val loginName = intent.getStringExtra("NameValue")?: "김성진"                // SignUpActivity.kt에서 이름을 받기
+        val age = intent.getStringExtra("Age")?: "만 22"                            // SignUpActivity.kt에서 나이를 받기
+        val mbti = intent.getStringExtra("MBTI")?: "ISTJ"                           // SignUpActivity.kt에서 mbti를 받기
+        val gender = intent.getStringExtra("Gender")?: "남성"                        // SignUpActivity.kt에서 성별을 받기
 
         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()           // 그걸 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
         profilePageTitle.text = "${loginId}님의 프로필"                                      // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
-        loginIdValue.text = "아이디 : ${loginId}"                                           // 아이디를 출력하는 TextView에 받아온 아이디를 출력
         password.text = "비밀번호 : ${loginPd}"                                             // 비밀번호를 출력하는 TextView에 받아온 비밀번호를 출력
 
         if (loginName.toString().isNotEmpty()) {
-            name.text = "이름 : ${loginName}"                                              // 이름을 출력하는 TextView에 받아온 이름을 출력
-        } else if (loginName.toString().isEmpty()) {
-            name.text = "이름 : 입력 안 됨"
+           name.setText("이름 : ${loginName}")                                              // 이름을 출력
+        }
+        if (age.toString().isNotEmpty()) {
+            etAge.text = "나이 : ${age}세"                                                   // 나이 출력
+        }
+        if (mbti.toString().isNotEmpty()) {
+            mbtiEdit.text = "MBTI : ${mbti}"                                                // MBTI 출력
+        }
+        if (gender.toString().isNotEmpty()) {
+            etGender.text = "성별 : ${gender}"                                               // 성별 출력
         }
 
         val random = Random.nextInt(5) + 1                                            // 랜덤으로 1부터 5까지 정수 중 하나를 고름
