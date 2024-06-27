@@ -61,7 +61,6 @@ class SignInActivity : AppCompatActivity() {
             }
         }
 
-
         // 회원 가입 버튼 눌렀을 때 회원 가입 페이지로 이동
         makeProfileButton.setOnClickListener {
             val make = Intent(this, SignUpActivity::class.java)
