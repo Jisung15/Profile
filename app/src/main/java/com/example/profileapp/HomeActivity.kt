@@ -44,18 +44,10 @@ class HomeActivity : AppCompatActivity() {
         profilePageTitle.text = "${loginId}님의 프로필"                                      // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
         password.text = "비밀번호 : ${loginPd}"                                             // 비밀번호를 출력하는 TextView에 받아온 비밀번호를 출력
 
-        if (loginName.toString().isNotEmpty()) {
-           name.setText("이름 : ${loginName}")                                              // 이름을 출력
-        }
-        if (age.toString().isNotEmpty()) {
-            etAge.text = "나이 : ${age}세"                                                   // 나이 출력
-        }
-        if (mbti.toString().isNotEmpty()) {
-            mbtiEdit.text = "MBTI : ${mbti}"                                                // MBTI 출력
-        }
-        if (gender.toString().isNotEmpty()) {
-            etGender.text = "성별 : ${gender}"                                               // 성별 출력
-        }
+        name.setText("이름 : ${loginName}")                                              // 이름을 출력
+        etAge.text = "나이 : ${age}세"                                                   // 나이 출력
+        mbtiEdit.text = "MBTI : ${mbti}"                                                // MBTI 출력
+        etGender.text = "성별 : ${gender}"                                               // 성별 출력
 
         val random = Random.nextInt(5) + 1                                            // 랜덤으로 1부터 5까지 정수 중 하나를 고름
 
