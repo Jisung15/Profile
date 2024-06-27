@@ -48,6 +48,7 @@ class SignUpActivity : AppCompatActivity() {
 
                 val mbtiList = listOf("ISTJ", "ISTP", "ISFP", "ISFJ", "INTJ", "INTP", "INFP", "INFJ", "ESTJ", "ESTP", "ESFP", "ESFJ", "ENTJ", "ENTP", "ENFP", "ENFJ")
                 val mbtiList2 = listOf("istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj")
+
                 if (mbti.text.toString() in mbtiList || mbti.text.toString() in mbtiList2) {
                     back.putExtra("mbti", userClass.mbti)
                 } else {
