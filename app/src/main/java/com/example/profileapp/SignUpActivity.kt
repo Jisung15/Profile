@@ -34,7 +34,9 @@ class SignUpActivity : AppCompatActivity() {
         // 이름이나 아이디, 비밀번호, 나이, 성별, MBTI 중 하나라도 입력하지 않으면 "입력되지 않은 정보가 있습니다." 라는 토스트 메세지 출력
         signUpButton.setOnClickListener {
             if (makeName.text.isEmpty() || makeId.text.isEmpty() || makePd.text.isEmpty() || age.text.isEmpty() || mbti.text.isEmpty() || gender.text.isEmpty()) {
+
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
+
             } else {
                 val userClass = UserClass("${makeName.text}", "${makeId.text}", "${makePd.text}", "${age.text}", "${mbti.text}", "${gender.text}")         // 데이터 클래스 설정
                 val back = Intent(this, SignInActivity::class.java)
@@ -60,12 +62,18 @@ class SignUpActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
-                // 각 MBTI를 대문자와 소문자로 나눠서 정리를 해놓는 배열. 이 안에 mbti.text.toString() 값이 없으면 아래에 있는 if문을 실행하지 않고 else를 실행한다.
-                val mbtiList = listOf("ISTJ", "ISTP", "ISFP", "ISFJ", "INTJ", "INTP", "INFP", "INFJ", "ESTJ", "ESTP", "ESFP", "ESFJ", "ENTJ", "ENTP", "ENFP", "ENFJ")
-                val mbtiList2 = listOf("istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj")
+                // 각 MBTI를 대문자와 소문자로 나눠서 정리를 해놓은 배열. 이 안에 mbti.text.toString() 값이 없으면 아래에 있는 if문을 실행하지 않고 else를 실행한다.
+                val mbtiList = listOf(
+                    listOf(
+                        "ISTJ", "ISTP", "ISFP", "ISFJ", "INTJ", "INTP", "INFP", "INFJ", "ESTJ", "ESTP", "ESFP", "ESFJ", "ENTJ", "ENTP", "ENFP", "ENFJ"
+                    ),
+                    listOf(
+                        "istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj"
+                    )
+                )
 
                 // MBTI 입력을 잘못 했는지 검사하기 위해 예외 처리 추가
-                if (mbti.text.toString() in mbtiList || mbti.text.toString() in mbtiList2) {
+                if (mbti.text.toString() in mbtiList[0] || mbti.text.toString() in mbtiList[1]) {
                     back.putExtra("mbti", userClass.mbti)
                 } else {
                     Toast.makeText(this, "MBTI 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()

@@ -33,7 +33,7 @@ class SignInActivity : AppCompatActivity() {
 
         // SignUpActivity.kt에서 가져온 아이디와 비밀번호, 이름, 나이, 성별, MBTI를 연결해 놓은 EditText에 출력하는 부분. 회원가입 먼저 했고 로그인은 입력 안 했으니 가져올 때 까진 EditText가 비어있다.
         // 여기 코드는 밑에 있는 회원가입 페이지 가는 부분 실행하고 SignUpActivity.kt 갔다 와서 실행할 것이다.
-        val resultValue = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result : ActivityResult ->
+        val resultValue = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val resultId = result.data?.getStringExtra("makeId")
                 val resultPd = result.data?.getStringExtra("makePd")
@@ -46,17 +46,16 @@ class SignInActivity : AppCompatActivity() {
                 loginId.setText(resultId)
                 loginPd.setText(resultPd)
 
-                if (loginId.text.isNotEmpty() && loginPd.text.isNotEmpty()) {
-                    signButton.setOnClickListener {
-                        val value = Intent(this, HomeActivity::class.java)
-                        value.putExtra("loginId", resultId)                           // 아이디를 입력받는 EditText 에 입력한 아이디를 HomeActivity로 넘겨줌
-                        value.putExtra("loginPd", resultPd)                           // 비밀번호를 입력받는 EditText 에 입력한 비밀번호를 HomeActivity로 넘겨줌
-                        value.putExtra("NameValue", resultName)                       // 이름을 HomeActivity로 넘겨줌
-                        value.putExtra("AGE", age)                                    // 나이를 HomeActivity로 넘겨줌
-                        value.putExtra("MBTI", mbti)                                  // mbti를 HomeActivity로 넘겨줌
-                        value.putExtra("GENDER", gender)                              // 성별을 HomeActivity로 넘겨줌
-                        startActivity(value)
-                    }
+                // 회원가입 페이지에서 받아온 정보들을 로그인 페이지에서 로그인 버튼을 눌렀울 때 HomeActivity로 넘겨줌
+                signButton.setOnClickListener {
+                    val value = Intent(this, HomeActivity::class.java)
+                    value.putExtra("loginId", resultId)
+                    value.putExtra("loginPd", resultPd)
+                    value.putExtra("NAME", resultName)
+                    value.putExtra("AGE", age)
+                    value.putExtra("MBTI", mbti)
+                    value.putExtra("GENDER", gender)
+                    startActivity(value)
                 }
             }
         }
