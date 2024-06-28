@@ -1,5 +1,6 @@
 package com.example.profileapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -7,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ContentInfoCompat.Flags
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlin.math.log
@@ -29,25 +31,25 @@ class HomeActivity : AppCompatActivity() {
         val homeImage = findViewById<ImageView>(R.id.iv_home_title)
         val password = findViewById<TextView>(R.id.tv_password)
         val name = findViewById<TextView>(R.id.tv_home_name)
-        val etAge = findViewById<TextView>(R.id.tv_home_age)
+        val ageEdit = findViewById<TextView>(R.id.tv_home_age)
         val mbtiEdit = findViewById<TextView>(R.id.tv_home_MBTI)
-        val etGender = findViewById<TextView>(R.id.tv_home_gender)
+        val genderEdit = findViewById<TextView>(R.id.tv_home_gender)
 
         val loginId = intent.getStringExtra("loginId")                              // SignInActivity.kt에서 아이디를 입력받은 것을 넘겨주는데 그걸 받는 부분
         val loginPd = intent.getStringExtra("loginPd")                              // SignInActivity.kt에서 비밀번호를 받기
         val loginName = intent.getStringExtra("NameValue")?: "김성진"                // SignUpActivity.kt에서 이름을 받기
-        val age = intent.getStringExtra("Age")?: "만 22"                            // SignUpActivity.kt에서 나이를 받기
+        val age = intent.getStringExtra("AGE")?: "만 22"                            // SignUpActivity.kt에서 나이를 받기
         val mbti = intent.getStringExtra("MBTI")?: "ISTJ"                           // SignUpActivity.kt에서 mbti를 받기
-        val gender = intent.getStringExtra("Gender")?: "남성"                        // SignUpActivity.kt에서 성별을 받기
+        val gender = intent.getStringExtra("GENDER")?: "남성"                        // SignUpActivity.kt에서 성별을 받기
 
         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()           // 그걸 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
         profilePageTitle.text = "${loginId}님의 프로필"                                      // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
         password.text = "비밀번호 : ${loginPd}"                                             // 비밀번호를 출력하는 TextView에 받아온 비밀번호를 출력
 
         name.setText("이름 : ${loginName}")                                              // 이름을 출력
-        etAge.text = "나이 : ${age}세"                                                   // 나이 출력
+        ageEdit.text = "나이 : ${age}세"                                                 // 나이 출력
         mbtiEdit.text = "MBTI : ${mbti}"                                                // MBTI 출력
-        etGender.text = "성별 : ${gender}"                                               // 성별 출력
+        genderEdit.text = "성별 : ${gender}"                                             // 성별 출력
 
         val random = Random.nextInt(5) + 1                                            // 랜덤으로 1부터 5까지 정수 중 하나를 고름
 

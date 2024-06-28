@@ -43,8 +43,8 @@ class SignInActivity : AppCompatActivity() {
                 val gender = result.data?.getStringExtra("gender")
 
                 // EditText에 받아온 아이디와 비밀번호 출력
-                loginId.setText(resultId ?: "")
-                loginPd.setText(resultPd ?: "")
+                loginId.setText(resultId)
+                loginPd.setText(resultPd)
 
                 if (loginId.text.isNotEmpty() && loginPd.text.isNotEmpty()) {
                     signButton.setOnClickListener {
@@ -52,9 +52,9 @@ class SignInActivity : AppCompatActivity() {
                         value.putExtra("loginId", resultId)                           // 아이디를 입력받는 EditText 에 입력한 아이디를 HomeActivity로 넘겨줌
                         value.putExtra("loginPd", resultPd)                           // 비밀번호를 입력받는 EditText 에 입력한 비밀번호를 HomeActivity로 넘겨줌
                         value.putExtra("NameValue", resultName)                       // 이름을 HomeActivity로 넘겨줌
-                        value.putExtra("Age", age)                                    // 나이를 HomeActivity로 넘겨줌
+                        value.putExtra("AGE", age)                                    // 나이를 HomeActivity로 넘겨줌
                         value.putExtra("MBTI", mbti)                                  // mbti를 HomeActivity로 넘겨줌
-                        value.putExtra("Gender", gender)                              // 성별을 HomeActivity로 넘겨줌
+                        value.putExtra("GENDER", gender)                              // 성별을 HomeActivity로 넘겨줌
                         startActivity(value)
                     }
                 }
