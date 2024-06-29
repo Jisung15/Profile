@@ -214,7 +214,7 @@
         android:gravity="center"
         android:text="종료"
         android:fontFamily="@font/font2"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -46,7 +46,7 @@ class HomeActivity : AppCompatActivity() {
 
         profilePageTitle.text = "${loginId}님의 프로필"                                   // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
         password.text = "비밀번호 : ${loginPd}"                                           // 비밀번호를 출력
-        name.setText("이름 : ${loginName}")                                              // 이름을 출력
+        name.text = "이름 : ${loginName}"                                                // 이름을 출력
         ageEdit.text = "나이 : ${age}세"                                                 // 나이 출력
         genderEdit.text = "성별 : ${gender}"                                             // 성별 출력
 
