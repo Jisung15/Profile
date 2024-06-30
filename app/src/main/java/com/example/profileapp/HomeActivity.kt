@@ -44,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
 
         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()        // 그것들을 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
 
-        profilePageTitle.text = "${loginId}님의 프로필"                                   // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
+        profilePageTitle.text = "${loginId} 님의 프로필"                                   // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
         password.text = "비밀번호 : ${loginPd}"                                           // 비밀번호를 출력
         name.text = "이름 : ${loginName}"                                                // 이름을 출력
         ageEdit.text = "나이 : ${age}세"                                                 // 나이 출력
