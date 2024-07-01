@@ -38,7 +38,14 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
 
             } else {
-                val userClass = UserClass("${makeName.text}", "${makeId.text}", "${makePd.text}", "${age.text}", "${mbti.text}", "${gender.text}")         // 데이터 클래스 설정
+                val userClass = UserClass(                       // 데이터 클래스 설정
+                    "${makeName.text}",
+                    "${makeId.text}",
+                    "${makePd.text}",
+                    "${age.text}",
+                    "${mbti.text}",
+                    "${gender.text}"
+                )         // 데이터 클래스 설정
                 val back = Intent(this, SignInActivity::class.java)
 
                 // 나이 입력을 잘못 했는지 검사하기 위해 예외 처리 추가
@@ -49,7 +56,7 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.makeText(this, "입력 가능한 나이 숫자 범위를 벗어났습니다.", Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
-                } catch (e:NumberFormatException){         // 숫자가 아닌 문자를 나이 입력 칸에 입력 하는 경우를 try-catch문을 이용하여 예외처리
+                } catch (e: NumberFormatException) {         // 숫자가 아닌 문자를 나이 입력 칸에 입력 하는 경우를 try-catch문을 이용하여 예외처리
                     Toast.makeText(this, "나이 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }

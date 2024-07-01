@@ -37,10 +37,10 @@ class HomeActivity : AppCompatActivity() {
 
         val loginId = intent.getStringExtra("loginId")                              // SignInActivity.kt에서 아이디를 입력받은 것을 넘겨주는데 그걸 받는 부분
         val loginPd = intent.getStringExtra("loginPd")                              // 비밀번호를 받기
-        val loginName = intent.getStringExtra("NAME")?: "김성진"                     // 이름을 받기
-        val age = intent.getStringExtra("AGE")?: "만 22"                            // 나이를 받기
-        val mbti = intent.getStringExtra("MBTI")?: "ISTJ"                           // mbti를 받기
-        val gender = intent.getStringExtra("GENDER")?: "남성"                        // 성별을 받기
+        val loginName = intent.getStringExtra("NAME") ?: "김성진"                     // 이름을 받기
+        val age = intent.getStringExtra("AGE") ?: "만 22"                            // 나이를 받기
+        val mbti = intent.getStringExtra("MBTI") ?: "ISTJ"                           // mbti를 받기
+        val gender = intent.getStringExtra("GENDER") ?: "남성"                        // 성별을 받기
 
         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()        // 그것들을 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
 

@@ -19,7 +19,7 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_sign_in)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) {v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -33,32 +33,33 @@ class SignInActivity : AppCompatActivity() {
 
         // SignUpActivity.kt에서 가져온 아이디와 비밀번호, 이름, 나이, 성별, MBTI를 연결해 놓은 EditText에 출력하는 부분.
         // 여기 코드는 밑에 있는 회원가입 페이지 가는 부분 실행하고 SignUpActivity.kt 갔다 와서 실행할 예정
-        val resultValue = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val resultId = result.data?.getStringExtra("makeId")
-                val resultPd = result.data?.getStringExtra("makePd")
-                val resultName = result.data?.getStringExtra("makeName")
-                val age = result.data?.getStringExtra("age")
-                val mbti = result.data?.getStringExtra("mbti")
-                val gender = result.data?.getStringExtra("gender")
+        val resultValue =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val resultId = result.data?.getStringExtra("makeId")
+                    val resultPd = result.data?.getStringExtra("makePd")
+                    val resultName = result.data?.getStringExtra("makeName")
+                    val age = result.data?.getStringExtra("age")
+                    val mbti = result.data?.getStringExtra("mbti")
+                    val gender = result.data?.getStringExtra("gender")
 
-                // EditText에 받아온 아이디와 비밀번호 출력
-                loginId.setText(resultId)
-                loginPd.setText(resultPd)
+                    // EditText에 받아온 아이디와 비밀번호 출력
+                    loginId.setText(resultId)
+                    loginPd.setText(resultPd)
 
-                // 회원가입 페이지에서 받아온 정보들을 로그인 페이지에서 로그인 버튼을 눌렀울 때 HomeActivity로 넘겨줌
-                signButton.setOnClickListener {
-                    val value = Intent(this, HomeActivity::class.java)
-                    value.putExtra("loginId", resultId)
-                    value.putExtra("loginPd", resultPd)
-                    value.putExtra("NAME", resultName)
-                    value.putExtra("AGE", age)
-                    value.putExtra("MBTI", mbti)
-                    value.putExtra("GENDER", gender)
-                    startActivity(value)
+                    // 회원가입 페이지에서 받아온 정보들을 로그인 페이지에서 로그인 버튼을 눌렀울 때 HomeActivity로 넘겨줌
+                    signButton.setOnClickListener {
+                        val value = Intent(this, HomeActivity::class.java)
+                        value.putExtra("loginId", resultId)
+                        value.putExtra("loginPd", resultPd)
+                        value.putExtra("NAME", resultName)
+                        value.putExtra("AGE", age)
+                        value.putExtra("MBTI", mbti)
+                        value.putExtra("GENDER", gender)
+                        startActivity(value)
+                    }
                 }
             }
-        }
 
         // 회원 가입 버튼 눌렀을 때 회원 가입 페이지로 이동
         makeProfileButton.setOnClickListener {
@@ -73,8 +74,14 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this, "아이디/비밀번호를 확인해 주세요.", Toast.LENGTH_SHORT).show()
             } else {
                 val home = Intent(this, HomeActivity::class.java)
-                home.putExtra("loginId", loginId.text.toString())               // 아이디를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
-                home.putExtra("loginPd", loginPd.text.toString())               // 비밀번호를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
+                home.putExtra(                       // 아이디를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
+                    "loginId",
+                    loginId.text.toString()
+                )
+                home.putExtra(                       // 비밀번호를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
+                    "loginPd",
+                    loginPd.text.toString()
+                )
                 startActivity(home)
             }
         }

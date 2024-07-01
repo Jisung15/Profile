@@ -12,86 +12,86 @@
         android:id="@+id/iv_make_profile_page_title"
         android:layout_width="80dp"
         android:layout_height="70dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/user"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/login_title_message2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입"
-        android:fontFamily="@font/font3"
-        android:textStyle="bold"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/iv_make_profile_page_title"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/font3"
+        android:gravity="center"
+        android:text="회원가입"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_make_profile_page_title" />
 
     <TextView
         android:id="@+id/tv_make_profile_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="이름"
-        android:fontFamily="@font/font1"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/login_title_message2"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/font1"
+        android:text="이름"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_title_message2" />
 
     <EditText
         android:id="@+id/et_make_profile_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="이름을 입력하세요"
-        android:fontFamily="@font/font1"
-        app:layout_constraintTop_toBottomOf="@id/tv_make_profile_name"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
-        android:inputType="text"/>
+        android:fontFamily="@font/font1"
+        android:hint="이름을 입력하세요"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_make_profile_name" />
 
     <LinearLayout
         android:id="@+id/lv_title"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:orientation="horizontal"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/et_make_profile_name">
 
         <TextView
             android:id="@+id/tv_make_profile_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="아이디"
-            android:gravity="center_vertical"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:textSize="20sp"
-            android:layout_weight="1"/>
+            android:gravity="center_vertical"
+            android:text="아이디"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_make_profile_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:text="비밀번호"
             android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_weight="1"/>
+            android:text="비밀번호"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -99,29 +99,29 @@
         android:id="@+id/lv_value"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/lv_title">
 
         <EditText
             android:id="@+id/et_make_profile_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="아이디를 입력하세요"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:inputType="text"
-            android:layout_weight="1"/>
+            android:hint="아이디를 입력하세요"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/et_make_profile_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
             android:hint="비밀번호를 입력하세요"
-            android:inputType="textPassword"
-            android:layout_weight="1"/>
+            android:inputType="textPassword" />
 
     </LinearLayout>
 
@@ -129,41 +129,41 @@
         android:id="@+id/lv_title2"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:orientation="horizontal"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/lv_value">
 
         <TextView
             android:id="@+id/tv_age_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="나이"
-            android:gravity="center_vertical"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:textSize="20sp"
-            android:layout_weight="1"/>
+            android:gravity="center_vertical"
+            android:text="나이"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_MBTI_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:text="MBTI"
             android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_weight="1"/>
+            android:text="MBTI"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_gender_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:text="성별"
             android:gravity="center_vertical"
-            android:textSize="20sp"
-            android:layout_weight="1"/>
+            android:text="성별"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -171,38 +171,38 @@
         android:id="@+id/lv_value2"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/lv_title2">
 
         <EditText
             android:id="@+id/et_age_value"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="나이 (1~100)"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:inputType="text"
-            android:layout_weight="1"/>
+            android:hint="나이 (1~100)"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/et_MBTI_value"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
             android:hint="MBTI"
-            android:inputType="text"
-            android:layout_weight="1"/>
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/et_gender_value"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:fontFamily="@font/font1"
             android:hint="성별"
-            android:inputType="text"
-            android:layout_weight="1"/>
+            android:inputType="text" />
 
     </LinearLayout>
 
@@ -210,29 +210,28 @@
         android:id="@+id/sw_on_off2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="비밀번호 가리기  "
-        android:fontFamily="@font/font1"
-        android:textSize="15sp"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/lv_value2"
-        app:layout_constraintEnd_toEndOf="parent">
-    </androidx.appcompat.widget.SwitchCompat>
+        android:fontFamily="@font/font1"
+        android:text="비밀번호 가리기  "
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_value2"></androidx.appcompat.widget.SwitchCompat>
 
     <Button
         android:id="@+id/btn_make_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입 완료"
-        android:fontFamily="@font/font2"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:backgroundTint="@color/black"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/sw_on_off2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/font2"
+        android:gravity="center"
+        android:text="회원가입 완료"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sw_on_off2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
