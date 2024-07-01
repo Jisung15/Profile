@@ -32,7 +32,7 @@ class SignInActivity : AppCompatActivity() {
         val loginPd = findViewById<EditText>(R.id.et_login_password)
 
         // SignUpActivity.kt에서 가져온 아이디와 비밀번호, 이름, 나이, 성별, MBTI를 연결해 놓은 EditText에 출력하는 부분.
-        // 여기 코드는 밑에 있는 회원가입 페이지 가는 부분 실행하고 SignUpActivity.kt 갔다 와서 실행할 것이다.
+        // 여기 코드는 밑에 있는 회원가입 페이지 가는 부분 실행하고 SignUpActivity.kt 갔다 와서 실행할 예정
         val resultValue = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val resultId = result.data?.getStringExtra("makeId")

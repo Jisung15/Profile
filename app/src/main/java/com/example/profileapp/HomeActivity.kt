@@ -69,9 +69,9 @@ class HomeActivity : AppCompatActivity() {
 
         // 그렇게 랜덤으로 선택된 숫자가 무엇인가에 따라 랜덤으로 이미지 출력
         when (random) {
-            1 -> homeImage.setImageResource(R.drawable.welcome)
-            2 -> homeImage.setImageResource(R.drawable.add)
-            3 -> homeImage.setImageResource(R.drawable.korea)
+            1 -> homeImage.setImageResource(R.drawable.add)
+            2 -> homeImage.setImageResource(R.drawable.korea)
+            3 -> homeImage.setImageResource(R.drawable.welcome)
             4 -> homeImage.setImageResource(R.drawable.emperor)
             5 -> homeImage.setImageResource(R.drawable.application)
         }

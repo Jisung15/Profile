@@ -49,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.makeText(this, "입력 가능한 나이 숫자 범위를 벗어났습니다.", Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
-                } catch (e:NumberFormatException){
+                } catch (e:NumberFormatException){         // 숫자가 아닌 문자를 나이 입력 칸에 입력 하는 경우를 try-catch문을 이용하여 예외처리
                     Toast.makeText(this, "나이 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }

@@ -181,7 +181,7 @@
             android:id="@+id/et_age_value"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="나이"
+            android:hint="나이 (1~100)"
             android:fontFamily="@font/font1"
             android:inputType="text"
             android:layout_weight="1"/>
