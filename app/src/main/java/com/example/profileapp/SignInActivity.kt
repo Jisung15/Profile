@@ -42,7 +42,6 @@ class SignInActivity : AppCompatActivity() {
                 if (result.resultCode == Activity.RESULT_OK) {
                     val user = result.data?.getParcelableExtra<User>("userClass")
 
-
                     // EditText에 받아온 아이디와 비밀번호 출력
                     loginId.setText(user?.id ?: "")
                     loginPd.setText(user?.pd ?: "")
@@ -67,6 +66,7 @@ class SignInActivity : AppCompatActivity() {
         signButton.setOnClickListener {
             if (loginId.text.isEmpty() || loginPd.text.isEmpty()) {
                 Toast.makeText(this, R.string.isEmpty_sign_in, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             } else {
                 val home = Intent(this, HomeActivity::class.java)
                 home.putExtra(LOGINID, loginId.text.toString())                       // 아이디를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
