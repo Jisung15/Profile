@@ -27,6 +27,8 @@ class SignInActivity : AppCompatActivity() {
             insets
         }
 
+        Toast.makeText(this, R.string.make_profile_completed, Toast.LENGTH_SHORT).show()
+
         // activity_sign_in.xml에서 생성한 버튼, EditText 연결
         val makeProfileButton = findViewById<Button>(R.id.btn_make_profile_start)
         val signButton = findViewById<Button>(R.id.btn_login)

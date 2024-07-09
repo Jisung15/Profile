@@ -35,9 +35,12 @@
     <string name="et_make_mbti">MBTI</string>
     <string name="make_profile_gender">성별</string>
     <string name="et_make_gender">성별</string>
-    <string name="make_profile_complete">회원가입 완료</string>
+    <string name="make_profile_finish">회원가입 완료</string>
 
     <string name="isEmpty_sign_in">아이디 / 비밀번호를 확인해 주세요.</string>
+
+    <string name="login_completed">로그인 성공!</string>
+    <string name="make_profile_completed">회원가입 성공!</string>
 
     <string name="isEmpty_sign_up">입력되지 않은 정보가 있습니다.</string>
     <string name="over_age">입력 가능한 나이 숫자 범위를 벗어났습니다.</string>

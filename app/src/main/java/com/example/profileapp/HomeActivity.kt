@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity() {
         val login = intent.getParcelableExtra<User>("user")                              // SignInActivity.kt에서 넘겨주는데 그걸 받는 부분
 
 
-        Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()        // 그것을 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
+        Toast.makeText(this, R.string.login_completed, Toast.LENGTH_SHORT).show()        // 그것을 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
 
         profilePageTitle.text = "${login?.id} 님의 프로필"                            // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
         passwordTextView.text = "비밀번호 : ${login?.pd}"                             // 비밀번호를 출력
