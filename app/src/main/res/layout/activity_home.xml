@@ -31,14 +31,13 @@
 
     <TextView
         android:id="@+id/tv_profile_title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
         android:background="@color/white"
         android:gravity="center"
-        android:text="(프로필 제목)"
+        android:text="@string/home_title"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,14 +46,13 @@
 
     <TextView
         android:id="@+id/tv_home_name"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
         android:fontFamily="@font/font1"
         android:gravity="center"
-        android:text="이름 : 김성진"
+        android:text="@string/home_name"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,14 +61,13 @@
 
     <TextView
         android:id="@+id/tv_home_age"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:fontFamily="@font/font1"
         android:gravity="center"
-        android:text="나이 : 만 22세"
+        android:text="@string/home_age"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,14 +76,13 @@
 
     <TextView
         android:id="@+id/tv_home_MBTI"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:fontFamily="@font/font1"
         android:gravity="center"
-        android:text="MBTI : ISTJ"
+        android:text="@string/homt_mbti"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,14 +91,13 @@
 
     <TextView
         android:id="@+id/tv_home_gender"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:fontFamily="@font/font1"
         android:gravity="center"
-        android:text="성별 : 남성"
+        android:text="@string/home_gender"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,14 +107,13 @@
 
     <TextView
         android:id="@+id/tv_password"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:fontFamily="@font/font1"
         android:gravity="center"
-        android:text="비밀번호 : 123456"
+        android:text="@string/password"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,14 +122,13 @@
 
     <TextView
         android:id="@+id/tv_check"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
         android:fontFamily="@font/font1"
         android:gravity="center"
-        android:text="목표!"
+        android:text="@string/sub_title"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -144,10 +137,9 @@
 
     <LinearLayout
         android:id="@+id/lv_goal"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginHorizontal="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,18 +159,17 @@
             android:layout_weight="0.9"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="앱 개발자 취업"
+            android:text="@string/goal1"
             android:textSize="15sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lv_goal_2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -198,26 +189,49 @@
             android:layout_weight="0.9"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="다양한 앱 개발 및 앱 개발자로서의 성장"
+            android:text="@string/goal2"
             android:textSize="15sp" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_finish"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/font2"
-        android:gravity="center"
-        android:text="종료"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:background="@drawable/button_selector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lv_goal_2" />
+        app:layout_constraintTop_toBottomOf="@id/lv_goal_2">
+
+        <ImageView
+            android:id="@+id/iv_button_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/button_image_selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_button_text"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/end_message"
+            android:textColor="@drawable/button_text_selector"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/iv_button_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

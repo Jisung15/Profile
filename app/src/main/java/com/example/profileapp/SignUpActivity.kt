@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class SignUpActivity : AppCompatActivity() {
+    private val USER = "userClass"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -35,37 +36,26 @@ class SignUpActivity : AppCompatActivity() {
         signUpButton.setOnClickListener {
             if (makeName.text.isEmpty() || makeId.text.isEmpty() || makePd.text.isEmpty() || age.text.isEmpty() || mbti.text.isEmpty() || gender.text.isEmpty()) {
 
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.isEmpty_sign_up, Toast.LENGTH_SHORT).show()
 
             } else {
-                val userClass = UserClass(                       // 데이터 클래스 설정
-                    "${makeName.text}",
-                    "${makeId.text}",
-                    "${makePd.text}",
-                    "${age.text}",
-                    "${mbti.text}",
-                    "${gender.text}"
-                )         // 데이터 클래스 설정
-                val back = Intent(this, SignInActivity::class.java)
+                val user = User("${makeName.text}", "${makeId.text}", "${makePd.text}", "${age.text}", "${mbti.text}", "${gender.text}")         // 데이터 클래스 설정
+                val intent = Intent(this, SignInActivity::class.java)
 
                 // 나이 입력을 잘못 했는지 검사하기 위해 예외 처리 추가
                 try {
-                    if (age.text.toString().toInt() in 1..100) {
-                        back.putExtra("age", userClass.age)
-                    } else {
-                        Toast.makeText(this, "입력 가능한 나이 숫자 범위를 벗어났습니다.", Toast.LENGTH_SHORT).show()
+                    if (age.text.toString().toInt() !in 1..100) {
+                        Toast.makeText(this, R.string.over_age, Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
                 } catch (e: NumberFormatException) {         // 숫자가 아닌 문자를 나이 입력 칸에 입력 하는 경우를 try-catch문을 이용하여 예외처리
-                    Toast.makeText(this, "나이 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.number_format, Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
                 // 성별 입력을 잘못 했는지 검사하기 위해 예외 처리 추가
-                if (gender.text.toString() == "남성" || gender.text.toString() == "여성") {
-                    back.putExtra("gender", userClass.gender)
-                } else {
-                    Toast.makeText(this, "성별 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+                if (gender.text.toString() != "남성" && gender.text.toString() != "여성") {
+                    Toast.makeText(this, R.string.over_gender, Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
@@ -80,17 +70,13 @@ class SignUpActivity : AppCompatActivity() {
                 )
 
                 // MBTI 입력을 잘못 했는지 검사하기 위해 예외 처리 추가
-                if (mbti.text.toString() in mbtiList[0] || mbti.text.toString() in mbtiList[1]) {
-                    back.putExtra("mbti", userClass.mbti)
-                } else {
-                    Toast.makeText(this, "MBTI 입력이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+                if (mbti.text.toString() !in mbtiList[0] && mbti.text.toString() !in mbtiList[1]) {
+                    Toast.makeText(this, R.string.over_mbti, Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
-                back.putExtra("makeId", userClass.id)
-                back.putExtra("makePd", userClass.pd)
-                back.putExtra("makeName", userClass.name)
-                setResult(RESULT_OK, back)
+                intent.putExtra(USER, user)
+                setResult(RESULT_OK, intent)
                 finish()
             }
         }

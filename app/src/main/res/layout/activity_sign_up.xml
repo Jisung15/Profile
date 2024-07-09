@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/login_title_message2"
+        android:id="@+id/make_profile_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -27,7 +27,7 @@
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/font3"
         android:gravity="center"
-        android:text="회원가입"
+        android:text="@string/make_profile_title"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -43,11 +43,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/font1"
-        android:text="이름"
+        android:text="@string/make_profile_name"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_title_message2" />
+        app:layout_constraintTop_toBottomOf="@id/make_profile_title" />
 
     <EditText
         android:id="@+id/et_make_profile_name"
@@ -57,7 +57,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/font1"
-        android:hint="이름을 입력하세요"
+        android:hint="@string/et_make_name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/font1"
             android:gravity="center_vertical"
-            android:text="아이디"
+            android:text="@string/make_profile_id"
             android:textSize="20sp" />
 
         <TextView
@@ -90,7 +90,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/font1"
             android:gravity="center_vertical"
-            android:text="비밀번호"
+            android:text="@string/make_profile_pd"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -111,7 +111,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:hint="아이디를 입력하세요"
+            android:hint="@string/et_make_id"
             android:inputType="text" />
 
         <EditText
@@ -120,7 +120,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:hint="비밀번호를 입력하세요"
+            android:hint="@string/et_make_pd"
             android:inputType="textPassword" />
 
     </LinearLayout>
@@ -142,7 +142,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/font1"
             android:gravity="center_vertical"
-            android:text="나이"
+            android:text="@string/make_profile_age"
             android:textSize="20sp" />
 
         <TextView
@@ -152,7 +152,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/font1"
             android:gravity="center_vertical"
-            android:text="MBTI"
+            android:text="@string/make_profile_mbti"
             android:textSize="20sp" />
 
         <TextView
@@ -162,7 +162,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/font1"
             android:gravity="center_vertical"
-            android:text="성별"
+            android:text="@string/make_profile_gender"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -183,7 +183,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:hint="나이 (1~100)"
+            android:hint="@string/et_make_age"
             android:inputType="text" />
 
         <EditText
@@ -192,7 +192,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:hint="MBTI"
+            android:hint="@string/et_make_mbti"
             android:inputType="text" />
 
         <EditText
@@ -201,7 +201,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="@font/font1"
-            android:hint="성별"
+            android:hint="@string/et_make_gender"
             android:inputType="text" />
 
     </LinearLayout>
@@ -212,10 +212,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/font1"
-        android:text="비밀번호 가리기  "
+        android:text="@string/sw_on_off"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_value2"></androidx.appcompat.widget.SwitchCompat>
+        app:layout_constraintTop_toBottomOf="@+id/lv_value2">
+
+    </androidx.appcompat.widget.SwitchCompat>
 
     <Button
         android:id="@+id/btn_make_profile"
@@ -227,7 +229,7 @@
         android:backgroundTint="@color/black"
         android:fontFamily="@font/font2"
         android:gravity="center"
-        android:text="회원가입 완료"
+        android:text="@string/make_profile_complete"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

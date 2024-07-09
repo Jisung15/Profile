@@ -5,16 +5,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class SignInActivity : AppCompatActivity() {
+    private val LOGINID = "loginId"
+    private val LOGINPD = "loginPd"
+    private val LOGIN ="user"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,26 +38,17 @@ class SignInActivity : AppCompatActivity() {
         val resultValue =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
-                    val resultId = result.data?.getStringExtra("makeId")
-                    val resultPd = result.data?.getStringExtra("makePd")
-                    val resultName = result.data?.getStringExtra("makeName")
-                    val age = result.data?.getStringExtra("age")
-                    val mbti = result.data?.getStringExtra("mbti")
-                    val gender = result.data?.getStringExtra("gender")
+                    val user = result.data?.getParcelableExtra<User>("userClass")
+
 
                     // EditText에 받아온 아이디와 비밀번호 출력
-                    loginId.setText(resultId)
-                    loginPd.setText(resultPd)
+                    loginId.setText(user?.id ?: "")
+                    loginPd.setText(user?.pd ?: "")
 
                     // 회원가입 페이지에서 받아온 정보들을 로그인 페이지에서 로그인 버튼을 눌렀울 때 HomeActivity로 넘겨줌
                     signButton.setOnClickListener {
                         val value = Intent(this, HomeActivity::class.java)
-                        value.putExtra("loginId", resultId)
-                        value.putExtra("loginPd", resultPd)
-                        value.putExtra("NAME", resultName)
-                        value.putExtra("AGE", age)
-                        value.putExtra("MBTI", mbti)
-                        value.putExtra("GENDER", gender)
+                        value.putExtra(LOGIN, user)
                         startActivity(value)
                     }
                 }
@@ -71,17 +64,11 @@ class SignInActivity : AppCompatActivity() {
         // 아이디나 비밀번호 중 하나라도 입력이 안 되어 있으면 "아이디/비밀번호를 확인해 주세요." 라는 내용의 토스트 메세지 출력
         signButton.setOnClickListener {
             if (loginId.text.isEmpty() || loginPd.text.isEmpty()) {
-                Toast.makeText(this, "아이디/비밀번호를 확인해 주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.isEmpty_sign_in, Toast.LENGTH_SHORT).show()
             } else {
                 val home = Intent(this, HomeActivity::class.java)
-                home.putExtra(                       // 아이디를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
-                    "loginId",
-                    loginId.text.toString()
-                )
-                home.putExtra(                       // 비밀번호를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
-                    "loginPd",
-                    loginPd.text.toString()
-                )
+                home.putExtra(LOGINID, loginId.text.toString())                       // 아이디를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
+                home.putExtra(LOGINPD, loginPd.text.toString())                       // 비밀번호를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
                 startActivity(home)
             }
         }

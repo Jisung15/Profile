@@ -6,4 +6,6 @@
     <color name="dark_blue">#268BDC</color>
     <color name="gray">#9C9A9A</color>
     <color name="dark_yellow">#BCA45E</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="error">#E36E95</color>
 </resources>
