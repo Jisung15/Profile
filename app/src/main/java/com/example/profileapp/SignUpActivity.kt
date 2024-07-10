@@ -11,7 +11,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class SignUpActivity : AppCompatActivity() {
-    private val USER = "userClass"
+    companion object {
+        const val USER = "userClass"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -61,16 +64,11 @@ class SignUpActivity : AppCompatActivity() {
 
                 // 각 MBTI를 대문자와 소문자로 나눠서 정리를 해놓은 배열. 이 안에 mbti.text.toString() 값이 없으면 아래에 있는 if문을 실행하지 않고 else를 실행한다.
                 val mbtiList = listOf(
-                    listOf(
-                        "ISTJ", "ISTP", "ISFP", "ISFJ", "INTJ", "INTP", "INFP", "INFJ", "ESTJ", "ESTP", "ESFP", "ESFJ", "ENTJ", "ENTP", "ENFP", "ENFJ"
-                    ),
-                    listOf(
-                        "istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj"
-                    )
+                    "ISTJ", "ISTP", "ISFP", "ISFJ", "INTJ", "INTP", "INFP", "INFJ", "ESTJ", "ESTP", "ESFP", "ESFJ", "ENTJ", "ENTP", "ENFP", "ENFJ", "istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj"
                 )
 
                 // MBTI 입력을 잘못 했는지 검사하기 위해 예외 처리 추가
-                if (mbti.text.toString() !in mbtiList[0] && mbti.text.toString() !in mbtiList[1]) {
+                if (mbti.text.toString() !in mbtiList) {
                     Toast.makeText(this, R.string.over_mbti, Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }

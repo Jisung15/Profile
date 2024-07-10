@@ -13,9 +13,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class SignInActivity : AppCompatActivity() {
-    private val LOGINID = "loginId"
-    private val LOGINPD = "loginPd"
-    private val LOGIN ="user"
+    companion object {
+        const val LOGINID = "loginId"
+        const val LOGINPD = "loginPd"
+        const val LOGIN = "user"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
