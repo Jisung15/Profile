@@ -42,7 +42,8 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.isEmpty_sign_up, Toast.LENGTH_SHORT).show()
 
             } else {
-                val user = User("${makeName.text}", "${makeId.text}", "${makePd.text}", "${age.text}", "${mbti.text}", "${gender.text}")         // 데이터 클래스 설정
+                val user = User("${makeName.text}", "${makeId.text}", "${makePd.text}", "${age.text}", "${mbti.text}", "${gender.text}"
+                )         // 데이터 클래스 설정
                 val intent = Intent(this, SignInActivity::class.java)
 
                 // 나이 입력을 잘못 했는지 검사하기 위해 예외 처리 추가
@@ -64,7 +65,38 @@ class SignUpActivity : AppCompatActivity() {
 
                 // 각 MBTI를 대문자와 소문자로 나눠서 정리를 해놓은 배열. 이 안에 mbti.text.toString() 값이 없으면 아래에 있는 if문을 실행하지 않고 else를 실행한다.
                 val mbtiList = listOf(
-                    "ISTJ", "ISTP", "ISFP", "ISFJ", "INTJ", "INTP", "INFP", "INFJ", "ESTJ", "ESTP", "ESFP", "ESFJ", "ENTJ", "ENTP", "ENFP", "ENFJ", "istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj"
+                    "ISTJ",
+                    "ISTP",
+                    "ISFP",
+                    "ISFJ",
+                    "INTJ",
+                    "INTP",
+                    "INFP",
+                    "INFJ",
+                    "ESTJ",
+                    "ESTP",
+                    "ESFP",
+                    "ESFJ",
+                    "ENTJ",
+                    "ENTP",
+                    "ENFP",
+                    "ENFJ",
+                    "istj",
+                    "istp",
+                    "isfp",
+                    "isfj",
+                    "intj",
+                    "intp",
+                    "infp",
+                    "infj",
+                    "estj",
+                    "estp",
+                    "esfp",
+                    "esfj",
+                    "entj",
+                    "entp",
+                    "enfp",
+                    "enfj"
                 )
 
                 // MBTI 입력을 잘못 했는지 검사하기 위해 예외 처리 추가
