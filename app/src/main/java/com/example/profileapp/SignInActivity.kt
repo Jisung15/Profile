@@ -68,10 +68,10 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.isEmpty_sign_in, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             } else {
-                val home = Intent(this, HomeActivity::class.java)
-                home.putExtra(LOGINID, loginId.text.toString())                       // 아이디를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
-                home.putExtra(LOGINPD, loginPd.text.toString())                       // 비밀번호를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
-                startActivity(home)
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra(LOGINID, loginId.text.toString())                       // 아이디를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
+                intent.putExtra(LOGINPD, loginPd.text.toString())                       // 비밀번호를 입력받는 EditText 에 입력한 Text를 HomeActivity로 넘겨줌
+                startActivity(intent)
             }
         }
     }
