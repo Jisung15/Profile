@@ -1,5 +1,6 @@
 package com.example.profileapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -21,6 +22,7 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -41,30 +43,32 @@ class HomeActivity : AppCompatActivity() {
         val mbtiEdit = findViewById<TextView>(R.id.tv_home_MBTI)
         val genderEdit = findViewById<TextView>(R.id.tv_home_gender)
 
-        val login = intent.getParcelableExtra<User>(USER)                  // SignInActivity.kt에서 넘겨주는데 그걸 받는 부분
+        val loginId = intent.getStringExtra(LOGINID) ?: "jisung"
+        val loginPd = intent.getStringExtra(LOGINPD) ?: "123456"
 
-        val loginId = intent.getStringExtra(LOGINID)
-        val loginPd = intent.getStringExtra(LOGINPD)
-
-        login?.id = loginId
-        login?.pd = loginPd
+        val login = intent.getParcelableExtra<User>(USER)?.apply {                       // SignInActivity.kt에서 넘겨주는데 그걸 받는 부분
+            id = loginId
+            pd = loginPd
+        }
 
         Toast.makeText(this, R.string.login_completed, Toast.LENGTH_SHORT).show()        // 그것을 받아서 이 페이지로 넘어왔다는 건 로그인 성공이라는 뜻이므로 로그인 성공 토스트 메세지 출력
 
-        profilePageTitle.text = "${login?.id ?: """jisung"""} 님의 프로필"                          // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
-        passwordTextView.text = "${login?.pd ?: """비밀번호 : 123456"""}"                           // 비밀번호를 출력
-        nameTextView.text = "${login?.name ?: """이름 : 김성진"""}"                    // 이름을 출력
-        ageEdit.text = "${login?.age ?: """나이: 만 22세"""}"                      // 나이 출력
-        genderEdit.text = "${login?.gender ?: """성별 : 남성"""}"                  // 성별 출력
+        profilePageTitle.text = "${loginId} 님의 프로필"                           // 제목 TextView에 받아온 아이디를 프로필 제목으로 출력
+        passwordTextView.text = "비밀번호 : $loginPd"                              // 비밀번호를 출력
+        nameTextView.text = "이름 : ${login?.name ?: "김성진"}"                    // 이름을 출력
+        ageEdit.text = "나이 : ${login?.age ?: "만 22세"}"                         // 나이 출력
+        genderEdit.text = "성별 : ${login?.gender ?: "남성"}"                      // 성별 출력
 
         val mbtiList = listOf(
             "istj", "istp", "isfp", "isfj", "intj", "intp", "infp", "infj", "estj", "estp", "esfp", "esfj", "entj", "entp", "enfp", "enfj"
         )
 
         if (login?.mbti in mbtiList) {
-            mbtiEdit.text = "${login?.mbti?.uppercase() ?: """MBTI : ISTJ"""}"                                 // MBTI 출력 (소문자면 대문자로 변환)
+            mbtiEdit.text =
+                login?.mbti?.uppercase() ?: "MBTI : ISTJ"                                 // MBTI 출력 (소문자면 대문자로 변환)
         } else {
-            mbtiEdit.text = "${login?.mbti ?: """MBTI : ISTJ"""}"                                             // MBTI 출력
+            mbtiEdit.text =
+                login?.mbti ?: "MBTI : ISTJ"                                             // MBTI 출력
         }
 
         val random = Random.nextInt(5) + 1                                          // 랜덤으로 1부터 5까지 정수 중 하나를 고름
